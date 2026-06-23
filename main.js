@@ -46,8 +46,9 @@ function renderRows(items) {
   tbody.innerHTML = items.map(item => {
     const qty = getQuantidade(item);
     const badgeClass = qty === 0 ? 'badge zero' : 'badge';
+    const linhaCritica = qty < 10 ? 'estoque-critico' : '';
 
-    return `<tr>
+    return `<tr class="${linhaCritica}">
       <td>${getNome(item)}</td>
       <td><span class="${badgeClass}">${qty} un.</span></td>
       <td>#${item.id}</td>
